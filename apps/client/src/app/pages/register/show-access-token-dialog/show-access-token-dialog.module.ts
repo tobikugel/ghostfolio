@@ -11,7 +11,6 @@ import {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormFieldModule
 } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 
@@ -30,8 +29,7 @@ import { ShowAccessTokenDialog } from './show-access-token-dialog.component';
     ReactiveFormsModule,
     TextFieldModule,
     MatStepperModule,
-    MatCheckboxModule,
-    MatIconModule
+    MatCheckboxModule
   ],
   providers: [
     {
