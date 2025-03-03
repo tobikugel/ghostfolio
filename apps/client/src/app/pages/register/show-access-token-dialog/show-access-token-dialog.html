@@ -6,61 +6,70 @@
 </h1>
 <div class="py-3" mat-dialog-content>
   <mat-stepper #stepper linear>
-    <mat-step [completed]="disclaimerChecked" editable="false" state="disclaimer">
+    <mat-step
+      editable="false"
+      state="disclaimer"
+      [completed]="disclaimerChecked"
+    >
       <ng-template matStepLabel>Disclaimer</ng-template>
-        <mat-checkbox color="primary" i18n (change)="onChangeDislaimerChecked()">
-          I agree to have stored my <i>Security Token</i> from above in a secure
-          place. If I lose it, I cannot get my account back.
-        </mat-checkbox
-      >
+      <mat-checkbox color="primary" i18n (change)="onChangeDislaimerChecked()">
+        I agree to have stored my <i>Security Token</i> from above in a secure
+        place. If I lose it, I cannot get my account back.
+      </mat-checkbox>
       <div mat-dialog-actions>
         <div class="flex-grow-1">
-        <button i18n mat-button 
-        [mat-dialog-close]="undefined">Cancel</button>
-        </div>
-        <div>
-          <button mat-flat-button color="primary"
-          matStepperNext [disabled]="!disclaimerChecked">Next</button>
-        </div>
-      </div>
-    </mat-step>
-    <mat-step state="copy" editable="false">
-        <ng-template matStepLabel>Copy Token</ng-template>
-        <mat-form-field appearance="outline"  class="w-100 pt-2">
-          <mat-label i18
-          n>Security Token</mat-label>
-          <textarea
-            cdkTextareaAutosize
-            matInput
-            readonly
-            type="text"
-            [(value)]="data.accessToken"
-          ></textarea>
-          <div class="float-right mt-3">
-            <button
-              color="secondary"
-              mat-flat-button
-              [cdkCopyToClipboard]="data.accessToken"
-              (click)="enableCreateAccountButton()"
-            >
-              <ion-icon class="mr-1" name="copy-outline" /><span i18n
-                >Copy to clipboard</span
-              >
-            </button>
-          </div>
-          <mat-prefix *ngIf="false"></mat-prefix>
-          <mat-suffix *ngIf="false"></mat-suffix>
-        </mat-form-field>
-      <div mat-dialog-actions>
-        <div class="flex-grow-1">
-          <button i18n mat-flat-button [mat-dialog-close]="undefined">Cancel</button>
+          <button i18n mat-button [mat-dialog-close]="undefined">Cancel</button>
         </div>
         <div>
           <button
-            mat-flat-button
             color="primary"
+            mat-flat-button
             matStepperNext
-            [disabled]="isCreateAccountButtonDisabled" 
+            [disabled]="!disclaimerChecked"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step editable="false" state="copy">
+      <ng-template matStepLabel>Copy Token</ng-template>
+      <mat-form-field appearance="outline" class="w-100 pt-2">
+        <mat-label i18 n>Security Token</mat-label>
+        <textarea
+          cdkTextareaAutosize
+          matInput
+          readonly
+          type="text"
+          [(value)]="data.accessToken"
+        ></textarea>
+        <div class="float-right mt-3">
+          <button
+            color="secondary"
+            mat-flat-button
+            [cdkCopyToClipboard]="data.accessToken"
+            (click)="enableCreateAccountButton()"
+          >
+            <ion-icon class="mr-1" name="copy-outline" /><span i18n
+              >Copy to clipboard</span
+            >
+          </button>
+        </div>
+        <mat-prefix *ngIf="false"></mat-prefix>
+        <mat-suffix *ngIf="false"></mat-suffix>
+      </mat-form-field>
+      <div mat-dialog-actions>
+        <div class="flex-grow-1">
+          <button i18n mat-flat-button [mat-dialog-close]="undefined">
+            Cancel
+          </button>
+        </div>
+        <div>
+          <button
+            color="primary"
+            mat-flat-button
+            matStepperNext
+            [disabled]="isCreateAccountButtonDisabled"
             [mat-dialog-close]="data"
           >
             <span i18n>Create Account</span>
@@ -84,5 +93,5 @@
       <ion-icon name="checkmark-outline"></ion-icon>
     </ng-template>
   </mat-stepper>
-  <div>
+  <div></div>
 </div>
