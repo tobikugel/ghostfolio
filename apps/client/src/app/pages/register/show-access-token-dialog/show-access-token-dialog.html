@@ -11,10 +11,26 @@
       state="disclaimer"
       [completed]="disclaimerChecked"
     >
-      <ng-template matStepLabel>Disclaimer</ng-template>
-      <mat-checkbox color="primary" i18n (change)="onChangeDislaimerChecked()">
-        I agree to have stored my <i>Security Token</i> from above in a secure
-        place. If I lose it, I cannot get my account back.
+      <ng-template matStepLabel>Terms and Conditions</ng-template>
+      <div class="terms-and-conditions pt-2">
+        Please take a moment to read and accept the
+        <a
+          href="https://ghostfol.io/en/about/privacy-policy"
+          target="_blank"
+          title="Terms and Conditions"
+        >
+          terms and conditions</a
+        >. Remember to keep your <i>Security Token</i> safe. If you lose it, you
+        will not be able to recover your account.
+      </div>
+      <mat-checkbox
+        class="pt-2"
+        color="primary"
+        i18n
+        (change)="onChangeDislaimerChecked()"
+      >
+        I agree to the terms and understand that if I lose my
+        <i>Security Token</i>, I cannot recover my account.
       </mat-checkbox>
       <div mat-dialog-actions>
         <div class="flex-grow-1">
@@ -23,17 +39,22 @@
         <div>
           <button
             color="primary"
+            i18n
             mat-flat-button
             matStepperNext
             [disabled]="!disclaimerChecked"
           >
-            Next
+            Continue
           </button>
         </div>
       </div>
     </mat-step>
     <mat-step editable="false" state="copy">
-      <ng-template matStepLabel>Copy Token</ng-template>
+      <ng-template matStepLabel>Security Token</ng-template>
+      <div class="pt-2">
+        Here is your security token. It is only visible once, please store and
+        keep it in a safe place.
+      </div>
       <mat-form-field appearance="outline" class="w-100 pt-2">
         <mat-label i18 n>Security Token</mat-label>
         <textarea
@@ -43,7 +64,7 @@
           type="text"
           [(value)]="data.accessToken"
         ></textarea>
-        <div class="float-right mt-3">
+        <div class="float-right mt-1">
           <button
             color="secondary"
             mat-flat-button
@@ -55,15 +76,9 @@
             >
           </button>
         </div>
-        <mat-prefix *ngIf="false"></mat-prefix>
-        <mat-suffix *ngIf="false"></mat-suffix>
       </mat-form-field>
-      <div mat-dialog-actions>
-        <div class="flex-grow-1">
-          <button i18n mat-flat-button [mat-dialog-close]="undefined">
-            Cancel
-          </button>
-        </div>
+      <div align="end" mat-dialog-actions>
+        <button i18n mat-button [mat-dialog-close]="undefined">Cancel</button>
         <div>
           <button
             color="primary"

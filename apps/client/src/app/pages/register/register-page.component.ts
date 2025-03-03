@@ -87,7 +87,7 @@ export class RegisterPageComponent implements OnDestroy, OnInit {
         authToken,
         role
       },
-      disableClose: true,
+      disableClose: false,
       width: '30rem'
     });
 
