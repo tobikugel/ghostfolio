@@ -12,7 +12,7 @@
       [completed]="disclaimerChecked"
     >
       <ng-template matStepLabel>Terms and Conditions</ng-template>
-      <div class="terms-and-conditions pt-2">
+      <div class="terms-and-conditions pt-2" i18n>
         Please take a moment to read and accept the
         <a
           href="https://ghostfol.io/en/about/privacy-policy"
@@ -20,8 +20,8 @@
           title="Terms and Conditions"
         >
           terms and conditions</a
-        >. Remember to keep your <i>Security Token</i> safe. If you lose it, you
-        will not be able to recover your account.
+        >. Remember to keep your security token safe. If you lose it, you will
+        not be able to recover your account.
       </div>
       <mat-checkbox
         class="pt-2"
@@ -29,8 +29,8 @@
         i18n
         (change)="onChangeDislaimerChecked()"
       >
-        I agree to the terms and understand that if I lose my
-        <i>Security Token</i>, I cannot recover my account.
+        I agree to the terms and understand that if I lose my security token, I
+        cannot recover my account.
       </mat-checkbox>
       <div mat-dialog-actions>
         <div class="flex-grow-1">
@@ -51,12 +51,12 @@
     </mat-step>
     <mat-step editable="false" state="copy">
       <ng-template matStepLabel>Security Token</ng-template>
-      <div class="pt-2">
+      <div class="pt-2" i18n>
         Here is your security token. It is only visible once, please store and
         keep it in a safe place.
       </div>
-      <mat-form-field appearance="outline" class="w-100 pt-2">
-        <mat-label i18 n>Security Token</mat-label>
+      <mat-form-field appearance="outline" class="w-100 pt-3">
+        <mat-label i18n>Security Token</mat-label>
         <textarea
           cdkTextareaAutosize
           matInput
@@ -71,14 +71,12 @@
             [cdkCopyToClipboard]="data.accessToken"
             (click)="enableCreateAccountButton()"
           >
-            <ion-icon class="mr-1" name="copy-outline" /><span i18n
-              >Copy to clipboard</span
-            >
+            <ion-icon class="mr-1" name="copy-outline" />
+            <span i18n> Copy to clipboard </span>
           </button>
         </div>
       </mat-form-field>
       <div align="end" mat-dialog-actions>
-        <button i18n mat-button [mat-dialog-close]="undefined">Cancel</button>
         <div>
           <button
             color="primary"
